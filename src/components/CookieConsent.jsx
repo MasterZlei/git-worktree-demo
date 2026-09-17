@@ -38,11 +38,19 @@ function CookieConsent() {
     }
 
     return (
-        <div className="cookie-consent">
+        <aside
+            className="cookie-consent"
+            role="region"
+            aria-labelledby="cookie-consent-title"
+            aria-describedby="cookie-consent-desc"
+            aria-live="polite"
+        >
             <div className="cookie-consent__inner">
                 <div className="cookie-consent__text">
-                    <p className="cookie-consent__title">{COOKIE_CONTENT.title}</p>
-                    <p className="cookie-consent__desc">
+                    <p id="cookie-consent-title" className="cookie-consent__title">
+                        {COOKIE_CONTENT.title}
+                    </p>
+                    <p id="cookie-consent-desc" className="cookie-consent__desc">
                         {COOKIE_CONTENT.description}{' '}
                         <a href={COOKIE_CONTENT.privacyLink.href} className="cookie-consent__link">
                             {COOKIE_CONTENT.privacyLink.label}
@@ -50,15 +58,23 @@ function CookieConsent() {
                     </p>
                 </div>
                 <div className="cookie-consent__actions">
-                    <button type="button" className="btn btn--outline btn--sm" onClick={handleReject}>
+                    <button
+                        type="button"
+                        className="btn btn--outline btn--sm"
+                        onClick={handleReject}
+                    >
                         {COOKIE_CONTENT.rejectLabel}
                     </button>
-                    <button type="button" className="btn btn--primary btn--sm" onClick={handleAccept}>
+                    <button
+                        type="button"
+                        className="btn btn--primary btn--sm"
+                        onClick={handleAccept}
+                    >
                         {COOKIE_CONTENT.acceptLabel}
                     </button>
                 </div>
             </div>
-        </div>
+        </aside>
     );
 }
 
