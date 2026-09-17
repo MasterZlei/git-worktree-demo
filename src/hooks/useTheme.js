@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect } from 'react';
 
 const STORAGE_KEY = 'salespilot-theme';
 
@@ -67,13 +67,13 @@ export function useTheme() {
     return () => media.removeListener(onChange);
   }, []);
 
-  const setTheme = useCallback((next) => {
+  function setTheme(next) {
     setThemeState(next === 'light' ? 'light' : 'dark');
-  }, []);
+  }
 
-  const toggleTheme = useCallback(() => {
+  function toggleTheme() {
     setThemeState((prev) => (prev === 'light' ? 'dark' : 'light'));
-  }, []);
+  }
 
   return { theme, setTheme, toggleTheme };
 }
