@@ -1,6 +1,7 @@
 # Dependencies
 node_modules/
 package-lock.json
+.pnpm-store/
 
 # Build output
 dist/
@@ -25,6 +26,10 @@ npm-debug.log*
 
 # Vite
 *.local
+
+# Python
+__pycache__/
+*.py[cod]
 
 # Agent reference spec
 git-worktree-spec.md

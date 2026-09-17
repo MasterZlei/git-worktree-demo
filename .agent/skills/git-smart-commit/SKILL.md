@@ -7,6 +7,8 @@ description: 將雜亂的 git 變更，依功能邏輯自動拆分成多個有�
 
 將目前所有 staged / unstaged 變更，依功能邏輯分群後，逐批 `git add` + `git commit`。
 
+> **语言约定（与 Exec Worktree Spec 一致）**：`type` / `scope` 可用英文；**subject 必须简体中文**，禁止英文或繁体描述（例如不可写 `add navbar component`）。
+
 ---
 
 ## 流程
@@ -63,13 +65,13 @@ git diff --cached
 ```
 📋 Commit 計畫（共 N 個 commit）
 
-1. chore(project): 初始化專案設定與相依套件
+1. chore(project): 初始化项目设定与依赖套件
    → package.json, vite.config.js, .gitignore
 
-2. feat(data): 新增首頁各區塊的設定資料
+2. feat(data): 新增首页各区块的设定资料
    → src/data/navigation.js, src/data/hero.js, ...
 
-3. feat(navbar): 新增 Navbar 元件（含 RWD 漢堡選單）
+3. feat(navbar): 新增 Navbar 组件（含 RWD 汉堡选单）
    → src/components/Navbar.jsx
 
 ...
@@ -93,7 +95,7 @@ git commit -m "<type>(<scope>): <subject>"
 #### Commit Message 格式
 
 ```
-<type>(<scope>): <簡短描述，繁體中文>
+<type>(<scope>): <简短描述，简体中文>
 ```
 
 **type 對照表：**
@@ -116,10 +118,19 @@ git commit -m "<type>(<scope>): <subject>"
 - 多個範圍：用最主要的一個，不要用斜線串接
 
 **subject 規則：**
-- 使用繁體中文
-- 不超過 50 字
-- 不以句號結尾
-- 用「動詞開頭」：新增、調整、修正、移除、重構
+- **必须使用简体中文**（与 Exec Worktree Spec 相同）
+- 不超过 50 字
+- 不以句号结尾
+- 用「动词开头」：新增、调整、修正、移除、重构
+- **禁止**英文或繁体 subject；若草稿不符，改写为简体后再提交
+
+**对照示例：**
+
+| 错误（勿用） | 正确 |
+|--------------|------|
+| `feat(theme): add light theme CSS variables` | `feat(theme): 新增浅色主题 CSS 变量` |
+| `fix(cookie): improve mobile layout` | `fix(cookie): 改善同意条在窄屏下的排版` |
+| `docs(faq): mark checklist complete` | `docs(faq): 勾选规格 checklist 为已完成` |
 
 ---
 

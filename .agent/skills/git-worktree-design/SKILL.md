@@ -216,6 +216,7 @@ git worktree list
 💡 提示：
 - 切換工作目錄到對應 worktree 即可開始開發
 - 所有 worktree 共享同一個 .git，commit 歷史互通
+- 下一步可對各 worktree 執行 **Exec Worktree Spec**（`/exec-worktree-spec`），按 `git-worktree-spec.md` checklist 開發並分步 commit
 ```
 
 ---

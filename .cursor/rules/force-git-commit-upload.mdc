@@ -1,0 +1,15 @@
+---
+description: 强制每次 git 提交/上传前必须使用 git-commit-upload skill
+alwaysApply: true
+---
+
+# 强制 Git 提交规范
+
+在执行任何 `git commit`、`git push`，或用户说「提交 / 上传 / push / commit」时：
+
+1. **必须先**用 Read 打开并遵循 `.cursor/skills/git-commit-upload/SKILL.md`（个人环境则用 `~/.cursor/skills/git-commit-upload/SKILL.md`）。
+2. **禁止**跳过该 skill 直接 `git commit`。
+3. 提交消息必须为：`type(scope?): 简体中文摘要` + 空行 + `1. 2. 3.` 编号正文。
+4. 除非用户明确说「只提交不推送」，否则 commit 后必须 `git push`。
+
+未按上述流程提交视为违规，应停止并改走本 skill。
